@@ -114,8 +114,35 @@ const Index = () => {
   const advantages = [
     {
       icon: 'MapPin',
-      title: 'Премиальная локация',
-      description: 'Центр города с развитой инфраструктурой'
+      title: 'Расположение',
+      description: (
+        <div className="space-y-1 text-sm">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+            <span>Борисово</span>
+            <Icon name="Bus" size={14} className="ml-1" />
+            <span>7мин</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+            <span>Москворечье</span>
+            <Icon name="PersonStanding" size={14} className="ml-1" />
+            <span>12 минут</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+            <span>Орехово</span>
+            <Icon name="Bus" size={14} className="ml-1" />
+            <span>10мин</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
+            <span>Каширская</span>
+            <Icon name="Bus" size={14} className="ml-1" />
+            <span>10мин</span>
+          </div>
+        </div>
+      )
     },
     {
       icon: 'Building2',
@@ -230,9 +257,9 @@ const Index = () => {
                 <h3 className="text-xl font-semibold mb-2 text-primary">
                   {advantage.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <div className="text-muted-foreground">
                   {advantage.description}
-                </p>
+                </div>
               </Card>
             ))}
           </div>
