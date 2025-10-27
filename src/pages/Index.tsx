@@ -17,18 +17,60 @@ const Index = () => {
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
 
   const defaultGalleryImages = [
-    {
-      url: 'https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/734f430c-de5d-4a36-ace0-6549b77e0d1d.jpg',
-      title: 'Фасад комплекса'
-    },
-    {
-      url: 'https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/9474a4a8-ea71-4d98-9acb-cdb59ef20bb8.jpg',
-      title: 'Интерьер квартиры'
-    },
-    {
-      url: 'https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/6ba123e5-20bb-4915-8b89-6831768f5aee.jpg',
-      title: 'Вид с высоты'
-    }
+    { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
+    { url: 'https://cdn.poehali.dev/files/d28fef2b-cd4e-4647-9ccf-b306a8f86972.JPG', title: 'Общий вид застройки' },
+    { url: 'https://cdn.poehali.dev/files/bfda4ea0-1827-447c-9f92-196d1556c0b4.JPG', title: 'Панорама комплекса' },
+    { url: 'https://cdn.poehali.dev/files/a3be7cf1-95bc-499d-b21d-d50660442122.JPG', title: 'Вид с высоты' },
+    { url: 'https://cdn.poehali.dev/files/d4897bba-31f1-4193-ae22-c19479bf8c93.JPG', title: 'Башни комплекса' },
+    { url: 'https://cdn.poehali.dev/files/7860cbbf-4a84-470d-a7a5-f6cbc2c9d2d4.jpg', title: 'Архитектурный акцент' },
+    { url: 'https://cdn.poehali.dev/files/face36c0-1c0e-4403-b692-fc2ea47027cc.jpg', title: 'Детали фасада' },
+    { url: 'https://cdn.poehali.dev/files/1f091dfc-3034-45f1-b47c-148d4c489a45.JPG', title: 'Перспектива застройки' },
+    { url: 'https://cdn.poehali.dev/files/7e9dffb5-e7bd-436e-b3db-dcc87ce9d929.JPG', title: 'Жилые корпуса' },
+    { url: 'https://cdn.poehali.dev/files/aba8b732-3789-4e7b-91f6-7165b5ed7ae9.jpg', title: 'Архитектурная деталь' },
+    { url: 'https://cdn.poehali.dev/files/0fcc628f-fb1d-4ff6-b450-ad43b2caba91.jpg', title: 'Закатный вид' },
+    { url: 'https://cdn.poehali.dev/files/28e1abe2-262b-46ef-8477-ba5ed32bb3e4.JPG', title: 'Комплекс у реки' },
+    { url: 'https://cdn.poehali.dev/files/59bbfe11-146f-4e91-b707-a0238254f531.JPG', title: 'Жилые башни' },
+    { url: 'https://cdn.poehali.dev/files/7e652abe-9125-4e52-80db-0c082a918a0f.jpg', title: 'Благоустройство двора' },
+    { url: 'https://cdn.poehali.dev/files/ba4dc58d-9ea6-4d5e-9cec-45a3ce412f6e.jpg', title: 'Панорама из парка' },
+    { url: 'https://cdn.poehali.dev/files/fcae5bcf-1a07-4856-98e2-3dd5e67577c7.jpg', title: 'Фасадная текстура' },
+    { url: 'https://cdn.poehali.dev/files/f586b9a0-81ee-4856-a508-dcab12d91bf0.jpg', title: 'Вечерняя панорама' },
+    { url: 'https://cdn.poehali.dev/files/2ecd2ad2-617c-47e1-84d1-f8dd4555d54d.jpg', title: 'Перспективный вид' },
+    { url: 'https://cdn.poehali.dev/files/6ac03a7b-bf95-41c2-8f21-a20340963a09.jpg', title: 'Архитектурная композиция' },
+    { url: 'https://cdn.poehali.dev/files/6f3b8af8-903e-4290-9b38-3b81de47fc9e.jpg', title: 'Высотные башни' },
+    { url: 'https://cdn.poehali.dev/files/2dd09f48-5370-4b0d-be04-8e88c0760404.jpg', title: 'Фасад с кирпичом' },
+    { url: 'https://cdn.poehali.dev/files/70a00595-6f15-4598-9853-6f663fdb426d.jpg', title: 'Перспектива с небом' },
+    { url: 'https://cdn.poehali.dev/files/107f6857-696c-48df-b939-e68da18707eb.jpg', title: 'Дворовая территория' },
+    { url: 'https://cdn.poehali.dev/files/977061f8-fce9-4601-8c24-e8d67aec1956.jpg', title: 'Двор с перголой' },
+    { url: 'https://cdn.poehali.dev/files/4ec0438c-f8d9-4441-8c83-8a71cff45cdc.jpg', title: 'Терраса с видом' },
+    { url: 'https://cdn.poehali.dev/files/35188e7d-b6b6-4275-8ab8-ef2b01bbee3c.jpg', title: 'Перспектива башен' },
+    { url: 'https://cdn.poehali.dev/files/e03819bd-458d-4db3-8c82-95dc7d46736f.jpg', title: 'Фасады у реки' },
+    { url: 'https://cdn.poehali.dev/files/98a750a1-a129-435e-adb3-88b67dee5ee6.jpg', title: 'Благоустройство двора' },
+    { url: 'https://cdn.poehali.dev/files/b65ea767-bb69-45dc-848b-a43f8445a564.JPG', title: 'Панорамный вид' },
+    { url: 'https://cdn.poehali.dev/files/e5188a25-93a2-4039-83e1-0a6c227e763d.JPG', title: 'Вид с высоты птичьего полёта' },
+    { url: 'https://cdn.poehali.dev/files/a22d9952-2ac6-4b6f-9b83-df979febd330.JPG', title: 'Застройка у воды' },
+    { url: 'https://cdn.poehali.dev/files/ee94652d-43b9-4202-891c-a1ff56236b1d.JPG', title: 'Жилые корпуса' },
+    { url: 'https://cdn.poehali.dev/files/3d8cb8d0-8b4a-4199-b703-6e461d94fe8f.JPG', title: 'Вид на локацию' },
+    { url: 'https://cdn.poehali.dev/files/34a56d56-dd17-4c42-87d4-6a1e3d6eb552.jpg', title: 'Парковая зона' },
+    { url: 'https://cdn.poehali.dev/files/0bbdd67f-dea0-4ca9-9b58-9c8ac372bded.jpg', title: 'Мостик в парке' },
+    { url: 'https://cdn.poehali.dev/files/866a96ee-29f9-4fd0-8ccc-09b6328cfe8d.jpg', title: 'Лесная тропа' },
+    { url: 'https://cdn.poehali.dev/files/b9fe9cec-17fb-47a3-bc1c-22bd71cb11ee.jpg', title: 'Деревянный мост' },
+    { url: 'https://cdn.poehali.dev/files/cc4176ab-90ea-4ca6-812c-7abc28e92b2f.jpg', title: 'Площадка в парке' },
+    { url: 'https://cdn.poehali.dev/files/dc46da1b-401c-4877-875d-770d926d4acd.jpg', title: 'Зона отдыха' },
+    { url: 'https://cdn.poehali.dev/files/60d8af88-196c-4f48-ab74-b0c82bb2b260.jpg', title: 'Променад в парке' },
+    { url: 'https://cdn.poehali.dev/files/f6668e02-d26e-459c-8fa3-1f89a69cc8f5.jpg', title: 'Закатная панорама' },
+    { url: 'https://cdn.poehali.dev/files/8be1dc69-d2a4-4736-ac07-71e4b10173ef.jpg', title: 'Вид из парка' },
+    { url: 'https://cdn.poehali.dev/files/d96d3b17-581e-46b7-b6f1-c788e377549f.jpg', title: 'Деревянная лестница' },
+    { url: 'https://cdn.poehali.dev/files/f4464a2f-bf90-4069-91f6-ec9a8520bbde.jpg', title: 'Променад с солнцем' },
+    { url: 'https://cdn.poehali.dev/files/925a6d43-1acb-4358-86a5-a74ecb5945dc.jpg', title: 'Видовая площадка' },
+    { url: 'https://cdn.poehali.dev/files/3c3218c6-b451-4293-896b-6cd5137b4d8d.jpg', title: 'Тропа в лесу' },
+    { url: 'https://cdn.poehali.dev/files/c8048443-af13-445a-bded-12dada228bc2.jpg', title: 'Садовые качели' },
+    { url: 'https://cdn.poehali.dev/files/16e63e30-f062-49cf-9ee9-fcf9d8f337f6.jpg', title: 'Остановка у воды' },
+    { url: 'https://cdn.poehali.dev/files/7d335150-42cb-481e-9b49-800809fca2c6.jpg', title: 'Башни в зелени' },
+    { url: 'https://cdn.poehali.dev/files/b394e2bb-90e9-4e09-8fc4-2906d6c475f4.jpg', title: 'Променад между деревьями' },
+    { url: 'https://cdn.poehali.dev/files/eea9d54f-c506-41d4-8e73-71db19694884.jpg', title: 'Высотки в парке' },
+    { url: 'https://cdn.poehali.dev/files/8e47cd44-12cd-4b35-8708-1f6469cdfb37.jpg', title: 'Архитектурная группа' },
+    { url: 'https://cdn.poehali.dev/files/d5400cab-4d12-490b-bc3c-d1359d95e585.jpg', title: 'Мостик в парке' },
+    { url: 'https://cdn.poehali.dev/files/fd52ddbb-585e-4949-ac26-b88e087073e0.jpg', title: 'Лестница в лес' }
   ];
 
   const galleryImages = [...defaultGalleryImages, ...customImages];
