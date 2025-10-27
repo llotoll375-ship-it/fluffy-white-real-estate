@@ -494,7 +494,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1 text-primary">Email</h4>
-                    <p className="text-muted-foreground">info@wave-complex.ru</p>
+                    <p className="text-muted-foreground">jkwave@wave.ru</p>
                   </div>
                 </div>
               </Card>
