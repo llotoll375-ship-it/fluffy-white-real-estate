@@ -60,16 +60,12 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         telegram_message += f"\n\n💬 Сообщение:\n{message}"
     
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
-    data = {
+    data = urllib.parse.urlencode({
         'chat_id': chat_id,
         'text': telegram_message
-    }
+    }).encode('utf-8')
     
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(data).encode('utf-8'),
-        headers={'Content-Type': 'application/json'}
-    )
+    req = urllib.request.Request(url, data=data)
     
     try:
         with urllib.request.urlopen(req) as response:
