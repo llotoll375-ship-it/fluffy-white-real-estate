@@ -271,7 +271,7 @@ const Index = () => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Метро — 5 минут пешком</span>
+                    <span>Метро — 12 минут пешком</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
