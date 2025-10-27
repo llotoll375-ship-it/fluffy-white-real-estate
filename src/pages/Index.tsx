@@ -17,6 +17,7 @@ const Index = () => {
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
 
   const defaultGalleryImages = [
     { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
@@ -154,7 +155,11 @@ const Index = () => {
               Контакты
             </a>
           </div>
-          <Button variant="secondary" className="hidden md:block">
+          <Button 
+            variant="secondary" 
+            className="hidden md:block"
+            onClick={() => setShowContactForm(true)}
+          >
             Записаться на просмотр
           </Button>
         </nav>
@@ -178,10 +183,20 @@ const Index = () => {
             Премиальный жилой комплекс нового поколения
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-              Узнать подробнее
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="text-lg px-8 py-6"
+              onClick={() => setShowContactForm(true)}
+            >
+              Записаться на просмотр
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => setShowContactForm(true)}
+            >
               Связаться с нами
             </Button>
           </div>
@@ -525,6 +540,84 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {showContactForm && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowContactForm(false)}
+        >
+          <Card 
+            className="max-w-md w-full p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold">Оставить заявку</h3>
+              <button
+                onClick={() => setShowContactForm(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+            
+            <form className="space-y-4" onSubmit={async (e) => {
+              e.preventDefault();
+              setIsSubmitting(true);
+              
+              try {
+                const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                  alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                  setFormData({ name: '', phone: '', message: '' });
+                  setShowContactForm(false);
+                } else {
+                  alert('Ошибка при отправке. Попробуйте позже.');
+                }
+              } catch (error) {
+                alert('Ошибка при отправке. Попробуйте позже.');
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}>
+              <div>
+                <label className="block text-sm font-medium mb-2">Имя</label>
+                <Input 
+                  placeholder="Ваше имя" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Телефон</label>
+                <Input 
+                  placeholder="+7 (___) ___-__-__" 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Сообщение (необязательно)</label>
+                <Textarea 
+                  placeholder="Если есть вопросы, напишите здесь" 
+                  rows={3}
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                />
+              </div>
+              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+              </Button>
+            </form>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };
