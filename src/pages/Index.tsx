@@ -485,7 +485,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground py-12 px-4">
+      <footer className="bg-primary text-primary-foreground px-4 py-12">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -495,7 +495,7 @@ const Index = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-accent">Навигация</h4>
+              <h4 className="font-semibold mb-4 text-accent"></h4>
               <ul className="space-y-2">
                 <li>
                   <a href="#hero" className="text-primary-foreground/80 hover:text-accent transition-colors">
@@ -520,11 +520,11 @@ const Index = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-accent">Контакты</h4>
+              <h4 className="font-semibold mb-4 text-accent"></h4>
               <ul className="space-y-2 text-primary-foreground/80">
-                <li>+7 (495) 123-45-67</li>
-                <li>info@wave-complex.ru</li>
-                <li>г. Москва, ул. Примерная, д. 1</li>
+                <li></li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
           </div>
