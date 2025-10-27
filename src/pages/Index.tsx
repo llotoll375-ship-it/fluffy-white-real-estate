@@ -498,24 +498,16 @@ const Index = () => {
               <h4 className="font-semibold mb-4 text-accent"></h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#hero" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Главная
-                  </a>
+                  <a href="#hero" className="text-primary-foreground/80 hover:text-accent transition-colors"></a>
                 </li>
                 <li>
-                  <a href="#location" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Локация
-                  </a>
+                  <a href="#location" className="text-primary-foreground/80 hover:text-accent transition-colors"></a>
                 </li>
                 <li>
-                  <a href="#gallery" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Галерея
-                  </a>
+                  <a href="#gallery" className="text-primary-foreground/80 hover:text-accent transition-colors"></a>
                 </li>
                 <li>
-                  <a href="#contacts" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Контакты
-                  </a>
+                  <a href="#contacts" className="text-primary-foreground/80 hover:text-accent transition-colors"></a>
                 </li>
               </ul>
             </div>
