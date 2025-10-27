@@ -203,10 +203,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/80" />
         
         <div className="relative z-10 text-center px-4 animate-fade-in">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight">
             WAVE
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light">Жилой комплекс нового поколения Бизнес-класса</p>
+          <p className="text-lg md:text-xl text-white/80 mb-2 font-light uppercase tracking-wider">
+            Жилой комплекс бизнес-класса
+          </p>
+          <p className="text-base md:text-lg text-white/70 mb-8 font-light">
+            Премиальный жилой комплекс нового поколения
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
