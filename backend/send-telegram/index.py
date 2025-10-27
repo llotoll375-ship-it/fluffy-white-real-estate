@@ -35,8 +35,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '7949912355:AAFHvmoW9bq0J2_xdWnk7BgYW1jAcFtbAKM')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '-1003267486830')
+    bot_token = '7949912355:AAFHvmoW9bq0J2_xdWnk7BgYW1jAcFtbAKM'
+    chat_id = '-1003267486830'
     
     if not bot_token or not chat_id:
         return {
