@@ -4,11 +4,19 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const Index = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
 
-  const galleryImages = [
+  const defaultGalleryImages = [
     {
       url: 'https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/734f430c-de5d-4a36-ace0-6549b77e0d1d.jpg',
       title: 'Фасад комплекса'
@@ -22,6 +30,41 @@ const Index = () => {
       title: 'Вид с высоты'
     }
   ];
+
+  const galleryImages = [...defaultGalleryImages, ...customImages];
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+
+    Array.from(files).forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result) {
+          setCustomImages((prev) => [
+            ...prev,
+            {
+              url: event.target.result as string,
+              title: file.name.replace(/\.[^/.]+$/, '')
+            }
+          ]);
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const nextImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % galleryImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
 
   const advantages = [
     {
@@ -174,50 +217,104 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
               Галерея
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Посмотрите, как выглядит ваш будущий дом
             </p>
+            <div className="flex justify-center">
+              <label className="cursor-pointer">
+                <Button variant="outline" className="gap-2" asChild>
+                  <span>
+                    <Icon name="Upload" size={20} />
+                    Загрузить свои фото
+                  </span>
+                </Button>
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageUpload}
+                />
+              </label>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[4/3]"
-                onClick={() => setSelectedImage(image.url)}
-              >
-                <img
-                  src={image.url}
-                  alt={image.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-semibold text-white">{image.title}</h3>
+          <Carousel className="w-full max-w-6xl mx-auto">
+            <CarouselContent>
+              {galleryImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-2">
+                    <div
+                      className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[4/3]"
+                      onClick={() => setSelectedImage(index)}
+                    >
+                      <img
+                        src={image.url}
+                        alt={image.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <h3 className="text-xl font-semibold text-white">{image.title}</h3>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="-left-12" />
+            <CarouselNext className="-right-12" />
+          </Carousel>
         </div>
       </section>
 
-      {selectedImage && (
+      {selectedImage !== null && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-accent transition-colors"
-            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-accent transition-colors z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
           >
             <Icon name="X" size={32} />
           </button>
-          <img
-            src={selectedImage}
-            alt="Полный размер"
-            className="max-w-full max-h-full object-contain"
-          />
+          
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-accent transition-colors z-10 bg-black/50 p-3 rounded-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+          >
+            <Icon name="ChevronLeft" size={32} />
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-accent transition-colors z-10 bg-black/50 p-3 rounded-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+          >
+            <Icon name="ChevronRight" size={32} />
+          </button>
+
+          <div className="relative max-w-full max-h-full flex flex-col items-center">
+            <img
+              src={galleryImages[selectedImage].url}
+              alt={galleryImages[selectedImage].title}
+              className="max-w-full max-h-[80vh] object-contain"
+            />
+            <div className="mt-4 text-white text-center">
+              <h3 className="text-xl font-semibold mb-2">{galleryImages[selectedImage].title}</h3>
+              <p className="text-white/70">{selectedImage + 1} / {galleryImages.length}</p>
+            </div>
+          </div>
         </div>
       )}
 
