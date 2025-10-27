@@ -415,11 +415,15 @@ const Index = () => {
                   if (response.ok) {
                     alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                     setFormData({ name: '', phone: '', message: '' });
+                    setShowContactForm(false);
                   } else {
-                    alert('Ошибка при отправке. Попробуйте позже.');
+                    const errorData = await response.json();
+                    console.error('Error response:', errorData);
+                    alert(`Ошибка: ${errorData.error || 'Попробуйте позже'}`);
                   }
                 } catch (error) {
-                  alert('Ошибка при отправке. Попробуйте позже.');
+                  console.error('Fetch error:', error);
+                  alert(`Ошибка при отправке: ${error}`);
                 } finally {
                   setIsSubmitting(false);
                 }
