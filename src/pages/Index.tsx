@@ -506,7 +506,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1 text-primary">Адрес</h4>
-                    <p className="text-muted-foreground">г. Москва, ул. Примерная, д. 1</p>
+                    <p className="text-muted-foreground">г. Москва, ул. Борисовские пруды, д. 1</p>
                   </div>
                 </div>
               </Card>
