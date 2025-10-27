@@ -209,9 +209,7 @@ const Index = () => {
           <p className="text-lg md:text-xl text-white/80 mb-2 font-light uppercase tracking-wider">
             Жилой комплекс бизнес-класса
           </p>
-          <p className="text-base md:text-lg text-white/70 mb-8 font-light">
-            Премиальный жилой комплекс нового поколения
-          </p>
+          <p className="text-base md:text-lg text-white/70 mb-8 font-light"></p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
