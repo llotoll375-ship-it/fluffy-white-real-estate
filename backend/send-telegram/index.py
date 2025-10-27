@@ -36,7 +36,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         }
     
     bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '7949912355:AAFHvmoW9bq0J2_xdWnk7BgYW1jAcFtbAKM')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '-4945777882')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '-1003267486830')
     
     if not bot_token or not chat_id:
         return {
