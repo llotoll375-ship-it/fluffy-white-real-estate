@@ -213,7 +213,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="secondary" 
-              className="text-lg px-8 py-6"
+              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90"
               onClick={() => setShowContactForm(true)}
             >
               Записаться на просмотр
@@ -303,26 +303,9 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
               Галерея
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Посмотрите, как выглядит ваш будущий дом
             </p>
-            <div className="flex justify-center">
-              <label className="cursor-pointer">
-                <Button variant="outline" className="gap-2" asChild>
-                  <span>
-                    <Icon name="Upload" size={20} />
-                    Загрузить свои фото
-                  </span>
-                </Button>
-                <input
-                  type="file"
-                  multiple
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleImageUpload}
-                />
-              </label>
-            </div>
           </div>
 
           <Carousel className="w-full max-w-6xl mx-auto">
