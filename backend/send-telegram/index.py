@@ -35,8 +35,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '7949912355:AAFHvmoW9bq0J2_xdWnk7BgYW1jAcFtbAKM')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '-4945777882')
     
     if not bot_token or not chat_id:
         return {
@@ -51,21 +51,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     phone = body_data.get('phone', 'Не указан')
     message = body_data.get('message', '')
     
-    telegram_message = f"""
-🏢 *Новая заявка с сайта WAVE*
+    telegram_message = f"""🏢 Новая заявка с сайта WAVE
 
-👤 *Имя:* {name}
-📞 *Телефон:* {phone}
-"""
+👤 Имя: {name}
+📞 Телефон: {phone}"""
     
     if message:
-        telegram_message += f"\n💬 *Сообщение:*\n{message}"
+        telegram_message += f"\n\n💬 Сообщение:\n{message}"
     
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
     data = {
         'chat_id': chat_id,
-        'text': telegram_message,
-        'parse_mode': 'Markdown'
+        'text': telegram_message
     }
     
     req = urllib.request.Request(
@@ -77,11 +74,20 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     try:
         with urllib.request.urlopen(req) as response:
             response_data = response.read()
+            result = json.loads(response_data.decode('utf-8'))
         
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'success': True}),
+            'body': json.dumps({'success': True, 'telegram_response': result}),
+            'isBase64Encoded': False
+        }
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode('utf-8')
+        return {
+            'statusCode': 500,
+            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+            'body': json.dumps({'error': f'Telegram API Error: {e.code}', 'details': error_body}),
             'isBase64Encoded': False
         }
     except Exception as e:
