@@ -406,7 +406,7 @@ const Index = () => {
                 setIsSubmitting(true);
                 
                 try {
-                  const response = await fetch('/api/send-telegram', {
+                  const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
