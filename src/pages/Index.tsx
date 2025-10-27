@@ -15,6 +15,8 @@ import {
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
+  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const defaultGalleryImages = [
     { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
@@ -374,25 +376,58 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-primary">Свяжитесь с нами</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                
+                try {
+                  const response = await fetch('/api/send-telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                  });
+                  
+                  if (response.ok) {
+                    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                    setFormData({ name: '', phone: '', message: '' });
+                  } else {
+                    alert('Ошибка при отправке. Попробуйте позже.');
+                  }
+                } catch (error) {
+                  alert('Ошибка при отправке. Попробуйте позже.');
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}>
                 <div>
                   <label className="block text-sm font-medium mb-2">Имя</label>
-                  <Input placeholder="Ваше имя" />
+                  <Input 
+                    placeholder="Ваше имя" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Телефон</label>
-                  <Input placeholder="+7 (___) ___-__-__" />
+                  <Input 
+                    placeholder="+7 (___) ___-__-__" 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    required
+                  />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input type="email" placeholder="your@email.com" />
+                  <label className="block text-sm font-medium mb-2">Сообщение (необязательно)</label>
+                  <Textarea 
+                    placeholder="Если есть вопросы, напишите здесь" 
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Сообщение</label>
-                  <Textarea placeholder="Расскажите, что вас интересует" rows={4} />
-                </div>
-                <Button className="w-full" size="lg">
-                  Отправить заявку
+                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                 </Button>
               </form>
             </Card>
