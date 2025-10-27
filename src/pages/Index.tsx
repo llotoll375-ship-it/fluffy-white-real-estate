@@ -206,9 +206,7 @@ const Index = () => {
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
             WAVE
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
-            Премиальный жилой комплекс нового поколения
-          </p>
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light">Жилой комплекс нового поколения Бизнес-класса</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
