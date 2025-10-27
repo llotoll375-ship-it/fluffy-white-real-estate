@@ -46,10 +46,20 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    body_data = json.loads(event.get('body', '{}'))
+    try:
+        body_data = json.loads(event.get('body', '{}'))
+    except Exception:
+        body_data = {}
+    
+    print(f'Received body: {event.get("body")}')
+    print(f'Parsed data: {body_data}')
+    
     name = body_data.get('name', 'Не указано')
     phone = body_data.get('phone', 'Не указан')
     message = body_data.get('message', '')
+    
+    print(f'Chat ID: {chat_id}')
+    print(f'Bot token length: {len(bot_token)}')
     
     telegram_message = f"""🏢 Новая заявка с сайта WAVE
 
