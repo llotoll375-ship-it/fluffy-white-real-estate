@@ -213,7 +213,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="secondary" 
-              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90"
+              className="text-lg px-8 py-6"
               onClick={() => setShowContactForm(true)}
             >
               Записаться на просмотр
@@ -221,7 +221,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-8 py-6 border-white text-white/70 hover:bg-white hover:text-primary"
+              className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary"
               onClick={() => setShowContactForm(true)}
             >
               Связаться с нами
