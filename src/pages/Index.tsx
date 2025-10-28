@@ -360,7 +360,7 @@ const Index = () => {
             backgroundImage: 'url(https://cdn.poehali.dev/files/da4ab980-7f5c-44eb-bd39-6e83a38b4dee.jpg)'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/50" />
         
         <div className="relative z-10 container mx-auto px-4 pt-24 animate-fade-in">
           <div className="flex flex-col gap-3">
