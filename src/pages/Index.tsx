@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,6 +20,40 @@ const Index = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLiveCamera, setShowLiveCamera] = useState(false);
+  const [activeCamera, setActiveCamera] = useState('panorama');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const cameras = [
+    { id: 'panorama', name: 'Панорамный вид', url: 'https://stream3.exdesign.ru/borisovskie-5/tracks-v1/mono.m3u8?token=68f12810977b3043cb43ea389ab9e9b785bb0f34-27d630d431b665ea27c325a796fd0bce-1761654917-1761644117' },
+    { id: 'camera1', name: 'Камера 1', url: 'https://stream3.exdesign.ru/borisovskie-1/tracks-v1/mono.m3u8?token=5aac7dd812074902af98331b6bb4fac1241e6ee2-a0e33fe8282043f973e81eab1d8b2fae-1761654917-1761644117' },
+    { id: 'camera2', name: 'Камера 2', url: 'https://stream3.exdesign.ru/borisovskie-2/tracks-v1/mono.m3u8?token=49025ffead34bee62afd657b1161c4a0b396dcc6-0bdf3bd0af8fda8df64965a2b7be96af-1761654917-1761644117' },
+    { id: 'camera3', name: 'Камера 3', url: 'https://stream3.exdesign.ru/borisovskie-3/tracks-v1/mono.m3u8?token=789f0ef3fff16c0dd4e678fda19f924a05ab2de9-e6118fc4766b3df536812238d8473921-1761654917-1761644117' },
+    { id: 'camera4', name: 'Камера 4', url: 'https://stream3.exdesign.ru/borisovskie-4/tracks-v1/mono.m3u8?token=a2e359d713f54c2dc128ed4d2ce7892c3554d2b6-cfa2317b1a4a9a6c3eee02a4fe8a5d27-1761654917-1761644117' },
+  ];
+
+  useEffect(() => {
+    if (showLiveCamera && videoRef.current) {
+      const video = videoRef.current;
+      const currentCamera = cameras.find(c => c.id === activeCamera);
+      
+      if (currentCamera) {
+        if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = currentCamera.url;
+        } else {
+          import('hls.js').then(({ default: Hls }) => {
+            if (Hls.isSupported()) {
+              const hls = new Hls();
+              hls.loadSource(currentCamera.url);
+              hls.attachMedia(video);
+              hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                video.play();
+              });
+            }
+          });
+        }
+      }
+    }
+  }, [showLiveCamera, activeCamera]);
 
   const defaultGalleryImages = [
     { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
@@ -983,37 +1017,53 @@ const Index = () => {
 
       {showLiveCamera && (
         <div 
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 cursor-pointer"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setShowLiveCamera(false)}
         >
           <div className="relative max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
             <button 
-              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors z-10"
               onClick={() => setShowLiveCamera(false)}
             >
               <Icon name="X" size={32} />
             </button>
-            <Card className="bg-background p-8">
-              <div className="flex items-center gap-3 mb-6">
+            
+            <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 rounded-3xl p-6 shadow-2xl">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                <h3 className="text-2xl font-bold text-primary">Онлайн-трансляция со стройки</h3>
+                <h3 className="text-xl font-bold text-white">Онлайн-трансляция</h3>
               </div>
-              <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="YOUR_STREAM_URL_HERE"
-                  title="Онлайн-камера ЖК WAVE"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+
+              <div className="flex flex-wrap justify-center gap-2 mb-6 bg-white/10 backdrop-blur-sm rounded-full p-2">
+                {cameras.map(camera => (
+                  <button
+                    key={camera.id}
+                    onClick={() => setActiveCamera(camera.id)}
+                    className={`px-6 py-3 rounded-full font-medium transition-all ${
+                      activeCamera === camera.id
+                        ? 'bg-cyan-400 text-blue-900 shadow-lg'
+                        : 'text-white hover:bg-white/20'
+                    }`}
+                  >
+                    {camera.name}
+                  </button>
+                ))}
               </div>
-              <p className="text-muted-foreground text-center mt-4 text-sm">
-                Следите за ходом строительства в режиме реального времени
+
+              <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  ref={videoRef}
+                  controls
+                  autoPlay
+                  muted
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              <p className="text-white/70 text-center mt-4 text-sm">
+                ЖК ВЕЙВ, Панорамный вид • +8°, Пасмурно
               </p>
-            </Card>
+            </div>
           </div>
         </div>
       )}
