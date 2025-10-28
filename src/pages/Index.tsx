@@ -396,10 +396,10 @@ const Index = () => {
 
         <div className="relative z-10 container mx-auto px-4 mt-auto pb-32 animate-fade-in">
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight font-black">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight font-black drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               «ВЕЙВ» — современный семейный квартал на берегу реки
             </h2>
-            <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed font-normal">
+            <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed font-normal drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
               Это идеальное место для гармоничной жизни в окружении 2000 гектаров парков.
             </p>
             <Button 
