@@ -436,7 +436,7 @@ const Index = () => {
                 <Card className="p-6 text-center h-full">
                   <div className="aspect-square overflow-hidden rounded-lg mb-4">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/2f18b544-389f-4c48-9b34-f9c59b0f75cc.jpg"
+                      src="https://cdn.poehali.dev/files/d2e96ae3-2264-4f7a-8acb-ded90a54351c.jpg"
                       alt="Метро Борисово"
                       className="w-full h-full object-cover"
                     />
