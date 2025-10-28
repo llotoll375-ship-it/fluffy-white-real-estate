@@ -378,7 +378,7 @@ const Index = () => {
                 alt="Метро"
                 className="w-8 h-8"
               />
-              <span className="text-[#E2231A] text-sm md:text-base font-semibold">МЕТРО «БОРИСОВО»</span>
+              <span className="text-sm md:text-base font-semibold text-lime-600">»БОРИСОВО»</span>
             </div>
           </div>
         </div>
