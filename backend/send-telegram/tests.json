@@ -10,7 +10,7 @@
       }
     },
     {
-      "name": "Send telegram message with all fields",
+      "name": "Reject request without recaptcha token",
       "method": "POST",
       "path": "/",
       "body": {
@@ -18,23 +18,24 @@
         "phone": "+7 (999) 123-45-67",
         "message": "Хочу узнать подробности о квартирах"
       },
-      "expectedStatus": 200,
+      "expectedStatus": 400,
       "expectedBody": {
-        "success": true
+        "error": "reCAPTCHA token is required"
       },
       "bodyMatcher": "partial"
     },
     {
-      "name": "Send telegram message without optional message",
+      "name": "Reject request with invalid recaptcha token",
       "method": "POST",
       "path": "/",
       "body": {
         "name": "Петр Петров",
-        "phone": "+7 (911) 555-55-55"
+        "phone": "+7 (911) 555-55-55",
+        "recaptchaToken": "invalid-token-123"
       },
-      "expectedStatus": 200,
+      "expectedStatus": 400,
       "expectedBody": {
-        "success": true
+        "error": "reCAPTCHA verification failed"
       },
       "bodyMatcher": "partial"
     }

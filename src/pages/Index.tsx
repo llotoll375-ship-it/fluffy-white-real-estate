@@ -12,17 +12,48 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+    onRecaptchaSuccess: (token: string) => void;
+  }
+}
+
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [showContactForm, setShowContactForm] = useState(false);
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLiveCamera, setShowLiveCamera] = useState(false);
   const [activeCamera, setActiveCamera] = useState('panorama');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    window.onRecaptchaSuccess = (token: string) => {
+      setRecaptchaToken(token);
+    };
+    
+    const script = document.createElement('script');
+    script.innerHTML = `
+      function onRecaptchaSuccess(token) {
+        window.onRecaptchaSuccess(token);
+      }
+      
+      function onRecaptchaExpired() {
+        window.onRecaptchaSuccess(null);
+      }
+    `;
+    document.head.appendChild(script);
+    
+    return () => {
+      delete window.onRecaptchaSuccess;
+      document.head.removeChild(script);
+    };
+  }, []);
 
   const cameras = [
     { id: 'panorama', name: 'Панорамный вид', url: 'https://stream3.exdesign.ru/borisovskie-5/tracks-v1/mono.m3u8?token=68f12810977b3043cb43ea389ab9e9b785bb0f34-27d630d431b665ea27c325a796fd0bce-1761654917-1761644117' },
@@ -985,18 +1016,28 @@ const Index = () => {
               <h3 className="text-2xl font-bold mb-6 text-primary">Свяжитесь с нами</h3>
               <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault();
+                
+                if (!recaptchaToken) {
+                  alert('Пожалуйста, подтвердите, что вы не робот');
+                  return;
+                }
+                
                 setIsSubmitting(true);
                 
                 try {
                   const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({ ...formData, recaptchaToken })
                   });
                   
                   if (response.ok) {
                     alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                     setFormData({ name: '', phone: '', message: '' });
+                    setRecaptchaToken(null);
+                    if (window.grecaptcha) {
+                      window.grecaptcha.reset();
+                    }
                     setShowContactForm(false);
                   } else {
                     const errorData = await response.json();
@@ -1037,7 +1078,15 @@ const Index = () => {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
                 </div>
-                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+                <div className="flex justify-center">
+                  <div 
+                    className="g-recaptcha" 
+                    data-sitekey="6LcGA_orAAAAAPMsCQAiIIRY4dZRrWMDVQt36GrY"
+                    data-callback="onRecaptchaSuccess"
+                    data-expired-callback="onRecaptchaExpired"
+                  ></div>
+                </div>
+                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !recaptchaToken}>
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                 </Button>
               </form>
@@ -1235,18 +1284,28 @@ const Index = () => {
             
             <form className="space-y-4" onSubmit={async (e) => {
               e.preventDefault();
+              
+              if (!recaptchaToken) {
+                alert('Пожалуйста, подтвердите, что вы не робот');
+                return;
+              }
+              
               setIsSubmitting(true);
               
               try {
                 const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(formData)
+                  body: JSON.stringify({ ...formData, recaptchaToken })
                 });
                 
                 if (response.ok) {
                   alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                   setFormData({ name: '', phone: '', message: '' });
+                  setRecaptchaToken(null);
+                  if (window.grecaptcha) {
+                    window.grecaptcha.reset();
+                  }
                   setShowContactForm(false);
                 } else {
                   alert('Ошибка при отправке. Попробуйте позже.');
@@ -1284,7 +1343,15 @@ const Index = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
               </div>
-              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+              <div className="flex justify-center">
+                <div 
+                  className="g-recaptcha" 
+                  data-sitekey="6LcGA_orAAAAAPMsCQAiIIRY4dZRrWMDVQt36GrY"
+                  data-callback="onRecaptchaSuccess"
+                  data-expired-callback="onRecaptchaExpired"
+                ></div>
+              </div>
+              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !recaptchaToken}>
                 {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </Button>
             </form>
