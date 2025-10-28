@@ -759,6 +759,30 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="virtual-tour" className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
+              3D Панорама
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Совершите виртуальный тур по территории комплекса
+            </p>
+          </div>
+
+          <Card className="overflow-hidden">
+            <div className="w-full h-[600px] md:h-[700px] lg:h-[800px]">
+              <iframe 
+                src="https://pano.lsr.ru/panoramas/msk/wave/31-june-2025/index.html?startscene=14&startlookat=116.54,17.42,140,0,0"
+                className="w-full h-full border-0"
+                allowFullScreen
+                title="3D панорама ЖК WAVE"
+              />
+            </div>
+          </Card>
+        </div>
+      </section>
+
       <section id="gallery" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
