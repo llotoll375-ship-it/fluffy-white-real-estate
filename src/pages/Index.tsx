@@ -227,7 +227,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-accent/20">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-primary/40 backdrop-blur-md border-b border-accent/20">
         <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground tracking-tight">
             WAVE
