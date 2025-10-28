@@ -274,7 +274,7 @@ const Index = () => {
             <Button 
               variant="ghost" 
               size="icon"
-              className="md:hidden text-primary-foreground"
+              className="md:hidden text-primary-foreground animate-pulse-gentle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
