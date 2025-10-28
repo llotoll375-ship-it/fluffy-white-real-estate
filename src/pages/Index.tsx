@@ -364,10 +364,10 @@ const Index = () => {
 
       <section id="hero" className="relative h-screen flex flex-col overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-75"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-out"
           style={{
             backgroundImage: 'url(https://cdn.poehali.dev/files/da4ab980-7f5c-44eb-bd39-6e83a38b4dee.jpg)',
-            transform: `scale(${1 + scrollY * 0.0003})`
+            transform: `scale(${1 + scrollY * 0.0001})`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/50" />
