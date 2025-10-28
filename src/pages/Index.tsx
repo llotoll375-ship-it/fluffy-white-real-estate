@@ -1018,7 +1018,7 @@ const Index = () => {
                   });
                   
                   if (response.ok) {
-                    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                    window.open('/thanks.html', 'thanks', 'width=500,height=400,left=100,top=100');
                     setFormData({ name: '', phone: '', message: '' });
                     setCaptchaAnswer('');
                     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -1299,7 +1299,7 @@ const Index = () => {
                 });
                 
                 if (response.ok) {
-                  alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                  window.open('/thanks.html', 'thanks', 'width=500,height=400,left=100,top=100');
                   setFormData({ name: '', phone: '', message: '' });
                   setCaptchaAnswer('');
                   const num1 = Math.floor(Math.random() * 10) + 1;
