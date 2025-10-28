@@ -364,29 +364,29 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/80" />
         
         <div className="relative z-10 container mx-auto px-4 animate-fade-in">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-white rounded-full p-2 flex items-center justify-center w-12 h-12">
-                <span className="text-primary font-bold text-sm">МЦД</span>
+          <div className="max-w-xl">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="bg-white rounded-full p-1.5 flex items-center justify-center w-10 h-10">
+                <span className="text-primary font-bold text-xs">МЦД</span>
               </div>
-              <span className="text-white text-lg font-medium">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
+              <span className="text-white text-sm md:text-base font-medium">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
             </div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="bg-[#0077C8] rounded-full p-2 flex items-center justify-center w-12 h-12">
-                <span className="text-white font-bold text-2xl">M</span>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="bg-[#0077C8] rounded-full p-1.5 flex items-center justify-center w-10 h-10">
+                <span className="text-white font-bold text-lg">M</span>
               </div>
-              <span className="text-white text-lg font-medium">МЕТРО «БОРИСОВО»</span>
+              <span className="text-white text-sm md:text-base font-medium">МЕТРО «БОРИСОВО»</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               «ВЕЙВ» — современный семейный квартал на берегу реки
             </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed">
+            <p className="text-sm md:text-base text-white/90 mb-6 font-light leading-relaxed">
               Это идеальное место для гармоничной жизни в окружении 2000 гектаров парков.
             </p>
             <Button 
               size="lg" 
               variant="secondary" 
-              className="text-lg px-10 py-6 rounded-full"
+              className="text-base px-8 py-5 rounded-full"
               onClick={() => setShowContactForm(true)}
             >
               Получить предложение
