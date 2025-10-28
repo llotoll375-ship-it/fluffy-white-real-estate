@@ -374,7 +374,7 @@ const Index = () => {
         
         <div className="relative z-10 container mx-auto px-4 pt-24 animate-fade-in">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
+            <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
               <img 
                 src="https://cdn.poehali.dev/files/e84d7c6b-83eb-4456-b5dd-eb66ed5f54bc.png" 
                 alt="МЦД D2"
@@ -382,7 +382,7 @@ const Index = () => {
               />
               <span className="text-sm md:text-base font-semibold text-blue-800">«МОСКВОРЕЧЬЕ»</span>
             </div>
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
+            <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
               <img 
                 src="https://cdn.poehali.dev/files/6caaa952-a3a7-48e7-9c2b-c182dfca6b9d.png" 
                 alt="Метро"
