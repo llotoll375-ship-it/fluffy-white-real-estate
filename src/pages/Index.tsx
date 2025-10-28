@@ -385,7 +385,7 @@ const Index = () => {
 
         <div className="relative z-10 container mx-auto px-4 mt-auto pb-32 animate-fade-in">
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight font-extrabold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight font-black">
               «ВЕЙВ» — современный семейный квартал на берегу реки
             </h2>
             <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed font-normal">
