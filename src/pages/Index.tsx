@@ -366,9 +366,9 @@ const Index = () => {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 bg-white/95 rounded-full px-4 py-2 w-fit">
               <img 
-                src="https://cdn.poehali.dev/files/c36d1535-6b83-4ca3-a44f-d8c409cc30c2.jpg" 
-                alt="МЦД"
-                className="w-8 h-8"
+                src="https://cdn.poehali.dev/files/e84d7c6b-83eb-4456-b5dd-eb66ed5f54bc.png" 
+                alt="МЦД D2"
+                className="h-6"
               />
               <span className="text-sm md:text-base font-semibold text-blue-800">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
             </div>
