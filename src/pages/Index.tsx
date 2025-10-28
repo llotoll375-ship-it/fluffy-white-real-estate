@@ -18,6 +18,7 @@ const Index = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [showMapModal, setShowMapModal] = useState(false);
 
   const defaultGalleryImages = [
     { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
@@ -710,12 +711,17 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-              <div className="relative">
+              <div className="relative cursor-pointer group" onClick={() => setShowMapModal(true)}>
                 <img 
                   src="https://cdn.poehali.dev/files/9673f864-2c23-4c7c-837c-f76bb2b4ad53.jpg" 
                   alt="Карта транспортной доступности WAVE"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-lg shadow-lg transition-transform group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors rounded-lg flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Icon name="ZoomIn" size={48} className="text-white drop-shadow-lg" />
+                  </div>
+                </div>
               </div>
             </div>
           </Card>
@@ -969,6 +975,29 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {showMapModal && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setShowMapModal(false)}
+        >
+          <div className="relative max-w-7xl w-full">
+            <button 
+              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+              onClick={() => setShowMapModal(false)}
+            >
+              <Icon name="X" size={32} />
+            </button>
+            <img 
+              src="https://cdn.poehali.dev/files/9673f864-2c23-4c7c-837c-f76bb2b4ad53.jpg" 
+              alt="Карта транспортной доступности WAVE"
+              className="w-full h-auto rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white text-center mt-4 text-sm">Нажмите вне изображения, чтобы закрыть</p>
+          </div>
+        </div>
+      )}
 
       <footer className="bg-primary text-primary-foreground px-4 py-12">
         <div className="container mx-auto">
