@@ -261,7 +261,7 @@ const Index = () => {
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/files/5329e963-59fb-4327-b0fe-f8af0f4e9108.png"
+                      src="https://cdn.poehali.dev/files/053262e3-8081-4dca-be06-b0b19c603363.png"
                       alt="Студия StC-1-11-18"
                       className="w-full h-full object-contain"
                     />
@@ -297,7 +297,7 @@ const Index = () => {
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/files/4c04023e-9229-46ba-ad2b-e7b7f47acd33.png"
+                      src="https://cdn.poehali.dev/files/49ae0d2b-b7ee-4239-9755-4ec9b0aff582.png"
                       alt="1-комнатная евро 1eA-16-3"
                       className="w-full h-full object-contain"
                     />
@@ -333,7 +333,7 @@ const Index = () => {
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/files/b3131553-8310-46e2-b826-e57f35c841cb.png"
+                      src="https://cdn.poehali.dev/files/b9820386-3fe8-4b3c-825a-9696d82b02b1.png"
                       alt="2-комнатная евро 2eA-4-5-14"
                       className="w-full h-full object-contain"
                     />
@@ -369,7 +369,7 @@ const Index = () => {
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/files/2d181550-95b3-4dc0-83a2-fd7bdbb62039.png"
+                      src="https://cdn.poehali.dev/files/8a65196f-04af-4f71-8cb1-813f0e760c98.png"
                       alt="3-комнатная евро 3eG-1-5-10"
                       className="w-full h-full object-contain"
                     />
@@ -405,7 +405,7 @@ const Index = () => {
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/files/44d4142c-0aaf-440b-8fdf-18fcd7db3d51.png"
+                      src="https://cdn.poehali.dev/files/7507931e-240c-4dc1-91fd-1c161b53377b.png"
                       alt="4-комнатная евро 4eB-1-5-10"
                       className="w-full h-full object-contain"
                     />
