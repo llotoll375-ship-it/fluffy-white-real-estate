@@ -21,6 +21,7 @@ const Index = () => {
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLiveCamera, setShowLiveCamera] = useState(false);
   const [activeCamera, setActiveCamera] = useState('panorama');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const cameras = [
@@ -227,7 +228,7 @@ const Index = () => {
               Контакты
             </a>
           </div>
-          <div className="flex gap-3">
+          <div className="flex items-center gap-3">
             <Button 
               variant="ghost" 
               className="hidden md:block text-primary-foreground hover:text-accent hover:bg-accent/10 transition-colors duration-300"
@@ -243,8 +244,95 @@ const Index = () => {
             >
               Записаться на просмотр
             </Button>
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="md:hidden text-primary-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
+            </Button>
           </div>
         </nav>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-primary/98 backdrop-blur-sm border-t border-accent/20 animate-in slide-in-from-top">
+            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+              <a 
+                href="#hero" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Главная
+              </a>
+              <a 
+                href="#apartments" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Квартиры
+              </a>
+              <a 
+                href="#infrastructure" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Инфраструктура
+              </a>
+              <a 
+                href="#advantages" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Преимущества
+              </a>
+              <a 
+                href="#location" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Локация
+              </a>
+              <a 
+                href="#gallery" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Галерея
+              </a>
+              <a 
+                href="#contacts" 
+                className="text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Контакты
+              </a>
+              <div className="border-t border-accent/20 pt-4 space-y-3">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-start text-primary-foreground hover:text-accent hover:bg-accent/10"
+                  onClick={() => {
+                    setShowLiveCamera(true);
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <Icon name="Video" size={18} className="mr-2" />
+                  Онлайн-камера
+                </Button>
+                <Button 
+                  variant="secondary" 
+                  className="w-full"
+                  onClick={() => {
+                    setShowContactForm(true);
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  Записаться на просмотр
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
