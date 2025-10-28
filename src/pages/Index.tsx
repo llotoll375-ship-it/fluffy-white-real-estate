@@ -653,6 +653,41 @@ const Index = () => {
             </p>
           </div>
 
+          <Card className="mb-12 overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-8 p-8 items-center">
+              <div>
+                <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
+                  <span className="text-accent font-bold">Открытие в 2026 году</span>
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-primary">Метро и МЦД</h3>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Одновременно с завершением строительства первой очереди «WAVE» будет открыта станция метро <span className="font-bold text-primary">«Москворечье»</span> новой Бирюлевской линии метро.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Icon name="MapPin" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span><strong>1.5 км</strong> — МЦД «Москворечье»</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="MapPin" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span><strong>2.6 км</strong> — ст. м. «Борисово»</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="MapPin" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span><strong>Рядом</strong> — ст. м. «Москворечье» Бирюлевской линии (планов. открытие 2026 г.)</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative">
+                <img 
+                  src="https://cdn.poehali.dev/files/9673f864-2c23-4c7c-837c-f76bb2b4ad53.jpg" 
+                  alt="Карта транспортной доступности WAVE"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          </Card>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {advantages.map((advantage, index) => (
               <Card 
