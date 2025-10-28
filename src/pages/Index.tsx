@@ -229,8 +229,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <header className="fixed top-0 left-0 right-0 z-50 bg-primary/30 backdrop-blur-md border-b border-accent/20">
         <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-white tracking-wider relative">
             WAVE
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent"></span>
           </h1>
           <div className="hidden md:flex items-center gap-8">
             <a href="#hero" className="text-primary-foreground/80 hover:text-accent transition-colors duration-300">
