@@ -1300,6 +1300,11 @@ const Index = () => {
                 });
                 
                 if (response.ok) {
+                  // Отправляем событие в Яндекс.Метрику
+                  if (window.ym) {
+                    window.ym(104881253, 'reachGoal', 'form_submit');
+                  }
+                  
                   setFormData({ name: '', phone: '', message: '' });
                   setCaptchaAnswer('');
                   const num1 = Math.floor(Math.random() * 10) + 1;
