@@ -353,7 +353,7 @@ const Index = () => {
         )}
       </header>
 
-      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="hero" className="relative h-screen flex flex-col overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -363,20 +363,29 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/80" />
         
-        <div className="relative z-10 container mx-auto px-4 animate-fade-in">
+        <div className="relative z-10 container mx-auto px-4 pt-24 animate-fade-in">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-3 bg-white/95 rounded-full px-4 py-2 w-fit">
+              <img 
+                src="https://cdn.poehali.dev/files/c36d1535-6b83-4ca3-a44f-d8c409cc30c2.jpg" 
+                alt="МЦД"
+                className="w-8 h-8"
+              />
+              <span className="text-primary text-sm md:text-base font-semibold">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
+            </div>
+            <div className="flex items-center gap-3 bg-white/95 rounded-full px-4 py-2 w-fit">
+              <img 
+                src="https://cdn.poehali.dev/files/6caaa952-a3a7-48e7-9c2b-c182dfca6b9d.png" 
+                alt="Метро"
+                className="w-8 h-8"
+              />
+              <span className="text-[#E2231A] text-sm md:text-base font-semibold">МЕТРО «БОРИСОВО»</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 mt-auto pb-32 animate-fade-in">
           <div className="max-w-xl">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="bg-white rounded-full p-1.5 flex items-center justify-center w-10 h-10">
-                <span className="text-primary font-bold text-xs">МЦД</span>
-              </div>
-              <span className="text-white text-sm md:text-base font-medium">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
-            </div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="bg-[#0077C8] rounded-full p-1.5 flex items-center justify-center w-10 h-10">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
-              <span className="text-white text-sm md:text-base font-medium">МЕТРО «БОРИСОВО»</span>
-            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               «ВЕЙВ» — современный семейный квартал на берегу реки
             </h2>
