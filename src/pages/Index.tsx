@@ -1312,7 +1312,7 @@ const Index = () => {
                   setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
                   setShowContactForm(false);
                   setShowThankYou(true);
-                  setTimeout(() => setShowThankYou(false), 10000);
+                  setTimeout(() => setShowThankYou(false), 3000);
                 } else {
                   alert('Ошибка при отправке. Попробуйте позже.');
                 }
@@ -1396,7 +1396,7 @@ const Index = () => {
               Закрыть
             </Button>
             <p className="text-sm text-gray-400 mt-4">
-              Окно закроется автоматически через 10 секунд
+              Окно закроется автоматически через 3 секунды
             </p>
           </div>
         </div>
