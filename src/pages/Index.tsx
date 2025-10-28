@@ -1021,17 +1021,18 @@ const Index = () => {
           onClick={() => setShowLiveCamera(false)}
         >
           <div className="relative max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors z-10"
-              onClick={() => setShowLiveCamera(false)}
-            >
-              <Icon name="X" size={32} />
-            </button>
-            
             <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 rounded-3xl p-6 shadow-2xl">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                <h3 className="text-xl font-bold text-white">Онлайн-трансляция</h3>
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  <h3 className="text-xl font-bold text-white">Онлайн-трансляция</h3>
+                </div>
+                <button 
+                  className="text-white hover:text-cyan-400 transition-colors bg-white/10 rounded-full p-2 hover:bg-white/20"
+                  onClick={() => setShowLiveCamera(false)}
+                >
+                  <Icon name="X" size={28} />
+                </button>
               </div>
 
               <div className="flex flex-wrap justify-center gap-2 mb-6 bg-white/10 backdrop-blur-sm rounded-full p-2">
