@@ -259,18 +259,18 @@ const Index = () => {
             <CarouselContent>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/5f4cf737-3f7f-4fe7-8f5b-39aef14fb88d.jpg"
-                      alt="Студия"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      src="https://cdn.poehali.dev/files/5329e963-59fb-4327-b0fe-f8af0f4e9108.png"
+                      alt="Студия StC-1-11-18"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-2 text-primary">Студия</h3>
-                    <p className="text-muted-foreground mb-4">Площадь: 28-32 м²</p>
+                    <h3 className="text-2xl font-bold mb-2 text-primary">Студия StC-1-11-18</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 24.8 м²</p>
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-accent">от 8.5 млн ₽</span>
+                      <span className="text-3xl font-bold text-accent">от 10 638 406 ₽</span>
                     </div>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-sm">
@@ -295,18 +295,18 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/b4503ff0-b141-49b3-a3de-36e2ee14a73d.jpg"
-                      alt="1-комнатная"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      src="https://cdn.poehali.dev/files/4c04023e-9229-46ba-ad2b-e7b7f47acd33.png"
+                      alt="1-комнатная евро 1eA-16-3"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная</h3>
-                    <p className="text-muted-foreground mb-4">Площадь: 42-48 м²</p>
+                    <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-16-3</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 38.2 м²</p>
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-accent">от 12.5 млн ₽</span>
+                      <span className="text-3xl font-bold text-accent">от 15 623 456 ₽</span>
                     </div>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-sm">
@@ -331,18 +331,18 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/591c1dc2-9d54-4d79-962a-cf8b7f8832df.jpg"
-                      alt="2-комнатная"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      src="https://cdn.poehali.dev/files/b3131553-8310-46e2-b826-e57f35c841cb.png"
+                      alt="2-комнатная евро 2eA-4-5-14"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-2 text-primary">2-комнатная</h3>
-                    <p className="text-muted-foreground mb-4">Площадь: 62-68 м²</p>
+                    <h3 className="text-2xl font-bold mb-2 text-primary">2-комнатная евро 2eA-4-5-14</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 70.5 м²</p>
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-accent">от 18.2 млн ₽</span>
+                      <span className="text-3xl font-bold text-accent">от 26 079 007 ₽</span>
                     </div>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-sm">
@@ -367,18 +367,18 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/9922056d-00b3-4fd4-b3e2-767ca3cdbebe.jpg"
-                      alt="3-комнатная"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      src="https://cdn.poehali.dev/files/2d181550-95b3-4dc0-83a2-fd7bdbb62039.png"
+                      alt="3-комнатная евро 3eG-1-5-10"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная</h3>
-                    <p className="text-muted-foreground mb-4">Площадь: 82-92 м²</p>
+                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eG-1-5-10</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 70.5 м²</p>
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-accent">от 24.8 млн ₽</span>
+                      <span className="text-3xl font-bold text-accent">от 26 795 569 ₽</span>
                     </div>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-sm">
@@ -392,6 +392,42 @@ const Index = () => {
                       <li className="flex items-center gap-2 text-sm">
                         <Icon name="Check" size={16} className="text-accent" />
                         <span>Французский балкон</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                    <img 
+                      src="https://cdn.poehali.dev/files/44d4142c-0aaf-440b-8fdf-18fcd7db3d51.png"
+                      alt="4-комнатная евро 4eB-1-5-10"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">4-комнатная евро 4eB-1-5-10</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 102.4 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 39 596 748 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Просторная планировка</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>3 санузла</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Несколько балконов</span>
                       </li>
                     </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
