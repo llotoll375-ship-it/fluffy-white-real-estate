@@ -49,7 +49,7 @@ const Index = () => {
     
     (window as any).onRecaptchaExpired = () => {
       console.log('reCAPTCHA expired');
-      setRecaptchaToken('');
+      setRecaptchaToken(null);
     };
     
     return () => {
