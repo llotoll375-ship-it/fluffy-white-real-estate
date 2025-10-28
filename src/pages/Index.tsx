@@ -407,7 +407,7 @@ const Index = () => {
 
           <div className="mt-12 text-center">
             <Card className="inline-block p-8 bg-gradient-to-r from-accent/10 to-accent/5">
-              <h3 className="text-2xl font-bold mb-4 text-primary">Ипотека от 0.1%</h3>
+              <h3 className="text-2xl font-bold mb-4 text-primary">Ипотека от 6%</h3>
               <p className="text-muted-foreground mb-4 max-w-md">
                 Специальные условия по ипотеке с господдержкой
               </p>
