@@ -260,7 +260,7 @@ const Index = () => {
               className="hidden md:block"
               onClick={() => setShowContactForm(true)}
             >
-              Записаться на просмотр
+              Получить предложение
             </Button>
             <Button 
               variant="ghost" 
@@ -345,7 +345,7 @@ const Index = () => {
                     setMobileMenuOpen(false);
                   }}
                 >
-                  Записаться на просмотр
+                  Получить предложение
                 </Button>
               </div>
             </div>
@@ -357,36 +357,39 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${galleryImages[0].url})`,
+            backgroundImage: 'url(https://cdn.poehali.dev/files/da4ab980-7f5c-44eb-bd39-6e83a38b4dee.jpg)',
             filter: 'brightness(0.7)'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/80" />
         
-        <div className="relative z-10 text-center px-4 animate-fade-in">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight">
-            WAVE
-          </h2>
-          <p className="text-lg md:text-xl text-white/80 mb-2 font-light uppercase tracking-wider">
-            Жилой комплекс бизнес-класса
-          </p>
-          <p className="text-base md:text-lg text-white/70 mb-8 font-light"></p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="relative z-10 container mx-auto px-4 animate-fade-in">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-white rounded-full p-2 flex items-center justify-center w-12 h-12">
+                <span className="text-primary font-bold text-sm">МЦД</span>
+              </div>
+              <span className="text-white text-lg font-medium">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
+            </div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="bg-[#0077C8] rounded-full p-2 flex items-center justify-center w-12 h-12">
+                <span className="text-white font-bold text-2xl">M</span>
+              </div>
+              <span className="text-white text-lg font-medium">МЕТРО «БОРИСОВО»</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              «ВЕЙВ» — современный семейный квартал на берегу реки
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed">
+              Это идеальное место для гармоничной жизни в окружении 2000 гектаров парков.
+            </p>
             <Button 
               size="lg" 
               variant="secondary" 
-              className="text-lg px-8 py-6"
+              className="text-lg px-10 py-6 rounded-full"
               onClick={() => setShowContactForm(true)}
             >
-              Записаться на просмотр
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-6 border-white bg-white text-primary hover:bg-white/90"
-              onClick={() => setShowContactForm(true)}
-            >
-              Связаться с нами
+              Получить предложение
             </Button>
           </div>
         </div>
