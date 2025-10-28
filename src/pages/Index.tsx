@@ -388,7 +388,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight font-extrabold">
               «ВЕЙВ» — современный семейный квартал на берегу реки
             </h2>
-            <p className="text-sm md:text-base text-white/90 mb-6 font-light leading-relaxed">
+            <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed font-normal">
               Это идеальное место для гармоничной жизни в окружении 2000 гектаров парков.
             </p>
             <Button 
