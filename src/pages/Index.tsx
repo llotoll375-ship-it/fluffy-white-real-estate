@@ -25,6 +25,7 @@ const Index = () => {
   const [showLiveCamera, setShowLiveCamera] = useState(false);
   const [activeCamera, setActiveCamera] = useState('panorama');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -1299,13 +1300,14 @@ const Index = () => {
                 });
                 
                 if (response.ok) {
-                  window.open('/thanks.html', 'thanks', 'width=500,height=400,left=100,top=100');
                   setFormData({ name: '', phone: '', message: '' });
                   setCaptchaAnswer('');
                   const num1 = Math.floor(Math.random() * 10) + 1;
                   const num2 = Math.floor(Math.random() * 10) + 1;
                   setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
                   setShowContactForm(false);
+                  setShowThankYou(true);
+                  setTimeout(() => setShowThankYou(false), 10000);
                 } else {
                   alert('Ошибка при отправке. Попробуйте позже.');
                 }
@@ -1368,6 +1370,30 @@ const Index = () => {
               </Button>
             </form>
           </Card>
+        </div>
+      )}
+
+      {showThankYou && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowThankYou(false)}>
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl animate-in fade-in zoom-in duration-300" onClick={(e) => e.stopPropagation()}>
+            <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-in zoom-in duration-500">
+              <Icon name="Check" size={48} className="text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Спасибо за заявку!</h2>
+            <p className="text-gray-600 mb-6 text-lg">
+              Мы получили вашу заявку и свяжемся с вами в ближайшее время
+            </p>
+            <Button 
+              onClick={() => setShowThankYou(false)}
+              className="w-full"
+              size="lg"
+            >
+              Закрыть
+            </Button>
+            <p className="text-sm text-gray-400 mt-4">
+              Окно закроется автоматически через 10 секунд
+            </p>
+          </div>
         </div>
       )}
     </div>
