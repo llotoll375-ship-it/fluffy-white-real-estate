@@ -618,11 +618,7 @@ const Index = () => {
           <Card className="mt-12 p-8 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
             <div className="text-center max-w-3xl mx-auto">
               <h3 className="text-3xl font-bold mb-4">О застройщике</h3>
-              <p className="text-lg mb-6 text-primary-foreground/90">
-                Мы — компания с 15-летним опытом строительства премиальных жилых комплексов. 
-                За это время построено более 50 объектов, в которых живут более 30 000 семей. 
-                Все проекты сданы в срок с гарантией качества.
-              </p>
+              <p className="text-lg mb-6 text-primary-foreground/90">Компания с 15-летним опытом строительства премиальных жилых комплексов. За это время построено более 50 объектов, в которых живут более 30 000 семей. Все проекты сданы в срок с гарантией качества.</p>
               <div className="grid grid-cols-3 gap-8 mt-8">
                 <div>
                   <div className="text-4xl font-bold text-accent mb-2">15+</div>
