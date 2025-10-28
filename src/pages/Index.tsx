@@ -726,36 +726,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="p-8 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-3xl font-bold mb-4">В шаговой доступности</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Метро — 12 минут пешком</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Школы и детские сады — в радиусе 500 метров</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Торговые центры и рестораны — 3 минуты</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Icon name="Check" size={24} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Парковая зона — прямо у дома</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="w-full h-64 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
-                  <Icon name="Map" size={80} className="text-accent/50" />
-                </div>
-              </div>
-            </div>
-          </Card>
+
         </div>
       </section>
 
