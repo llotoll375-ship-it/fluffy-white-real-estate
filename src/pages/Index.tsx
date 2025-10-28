@@ -24,7 +24,7 @@ const Index = () => {
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
   const [showContactForm, setShowContactForm] = useState(false);
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLiveCamera, setShowLiveCamera] = useState(false);
@@ -33,25 +33,27 @@ const Index = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    window.onRecaptchaSuccess = (token: string) => {
+    const interval = setInterval(() => {
+      if (window.grecaptcha && window.grecaptcha.ready) {
+        clearInterval(interval);
+        window.grecaptcha.ready(() => {
+          console.log('reCAPTCHA is ready');
+        });
+      }
+    }, 100);
+    
+    (window as any).onRecaptchaSuccess = (token: string) => {
+      console.log('reCAPTCHA token received');
       setRecaptchaToken(token);
     };
     
-    const script = document.createElement('script');
-    script.innerHTML = `
-      function onRecaptchaSuccess(token) {
-        window.onRecaptchaSuccess(token);
-      }
-      
-      function onRecaptchaExpired() {
-        window.onRecaptchaSuccess(null);
-      }
-    `;
-    document.head.appendChild(script);
+    (window as any).onRecaptchaExpired = () => {
+      console.log('reCAPTCHA expired');
+      setRecaptchaToken('');
+    };
     
     return () => {
-      delete window.onRecaptchaSuccess;
-      document.head.removeChild(script);
+      clearInterval(interval);
     };
   }, []);
 
@@ -1017,7 +1019,7 @@ const Index = () => {
               <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault();
                 
-                if (!recaptchaToken) {
+                if (!recaptchaToken || recaptchaToken === '') {
                   alert('Пожалуйста, подтвердите, что вы не робот');
                   return;
                 }
@@ -1034,10 +1036,12 @@ const Index = () => {
                   if (response.ok) {
                     alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                     setFormData({ name: '', phone: '', message: '' });
-                    setRecaptchaToken(null);
-                    if (window.grecaptcha) {
-                      window.grecaptcha.reset();
-                    }
+                    setRecaptchaToken('');
+                    setTimeout(() => {
+                      if (window.grecaptcha) {
+                        window.grecaptcha.reset();
+                      }
+                    }, 100);
                     setShowContactForm(false);
                   } else {
                     const errorData = await response.json();
@@ -1086,7 +1090,7 @@ const Index = () => {
                     data-expired-callback="onRecaptchaExpired"
                   ></div>
                 </div>
-                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !recaptchaToken}>
+                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                 </Button>
               </form>
@@ -1285,7 +1289,7 @@ const Index = () => {
             <form className="space-y-4" onSubmit={async (e) => {
               e.preventDefault();
               
-              if (!recaptchaToken) {
+              if (!recaptchaToken || recaptchaToken === '') {
                 alert('Пожалуйста, подтвердите, что вы не робот');
                 return;
               }
@@ -1302,10 +1306,12 @@ const Index = () => {
                 if (response.ok) {
                   alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                   setFormData({ name: '', phone: '', message: '' });
-                  setRecaptchaToken(null);
-                  if (window.grecaptcha) {
-                    window.grecaptcha.reset();
-                  }
+                  setRecaptchaToken('');
+                  setTimeout(() => {
+                    if (window.grecaptcha) {
+                      window.grecaptcha.reset();
+                    }
+                  }, 100);
                   setShowContactForm(false);
                 } else {
                   alert('Ошибка при отправке. Попробуйте позже.');
@@ -1351,7 +1357,7 @@ const Index = () => {
                   data-expired-callback="onRecaptchaExpired"
                 ></div>
               </div>
-              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !recaptchaToken}>
+              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </Button>
             </form>
