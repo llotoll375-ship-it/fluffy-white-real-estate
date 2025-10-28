@@ -688,25 +688,6 @@ const Index = () => {
             </div>
           </Card>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {advantages.map((advantage, index) => (
-              <Card 
-                key={index} 
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-accent/20"
-              >
-                <div className="bg-accent/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
-                  <Icon name={advantage.icon} size={28} className="text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-primary">
-                  {advantage.title}
-                </h3>
-                <div className="text-muted-foreground">
-                  {advantage.description}
-                </div>
-              </Card>
-            ))}
-          </div>
-
           <Card className="p-8 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
