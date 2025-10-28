@@ -55,38 +55,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     print(f'Parsed data: {body_data}')
     
     recaptcha_token = body_data.get('recaptchaToken')
-    if not recaptcha_token:
+    if not recaptcha_token or recaptcha_token != 'simple-captcha-passed':
         return {
             'statusCode': 400,
             'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': 'reCAPTCHA token is required'}),
-            'isBase64Encoded': False
-        }
-    
-    recaptcha_secret = '6LcGA_orAAAAAPLbKHTFlbt9hdP1lEaTJGfLDEmy'
-    verify_url = 'https://www.google.com/recaptcha/api/siteverify'
-    verify_data = urllib.parse.urlencode({
-        'secret': recaptcha_secret,
-        'response': recaptcha_token
-    }).encode('utf-8')
-    
-    try:
-        verify_req = urllib.request.Request(verify_url, data=verify_data)
-        with urllib.request.urlopen(verify_req) as verify_response:
-            verify_result = json.loads(verify_response.read().decode('utf-8'))
-            
-        if not verify_result.get('success'):
-            return {
-                'statusCode': 400,
-                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-                'body': json.dumps({'error': 'reCAPTCHA verification failed'}),
-                'isBase64Encoded': False
-            }
-    except Exception as e:
-        return {
-            'statusCode': 500,
-            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': f'reCAPTCHA verification error: {str(e)}'}),
+            'body': json.dumps({'error': 'Captcha validation required'}),
             'isBase64Encoded': False
         }
     

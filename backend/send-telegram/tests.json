@@ -10,32 +10,33 @@
       }
     },
     {
-      "name": "Reject request without recaptcha token",
+      "name": "Reject request without captcha token",
       "method": "POST",
       "path": "/",
       "body": {
         "name": "Иван Иванов",
         "phone": "+7 (999) 123-45-67",
-        "message": "Хочу узнать подробности о квартирах"
+        "message": "Хочу узнать подробнее"
       },
       "expectedStatus": 400,
       "expectedBody": {
-        "error": "reCAPTCHA token is required"
+        "error": "Captcha validation required"
       },
       "bodyMatcher": "partial"
     },
     {
-      "name": "Reject request with invalid recaptcha token",
+      "name": "Send telegram message with valid captcha",
       "method": "POST",
       "path": "/",
       "body": {
         "name": "Петр Петров",
         "phone": "+7 (911) 555-55-55",
-        "recaptchaToken": "invalid-token-123"
+        "message": "Интересует 2-комнатная",
+        "recaptchaToken": "simple-captcha-passed"
       },
-      "expectedStatus": 400,
+      "expectedStatus": 200,
       "expectedBody": {
-        "error": "reCAPTCHA verification failed"
+        "success": true
       },
       "bodyMatcher": "partial"
     }

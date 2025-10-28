@@ -12,19 +12,14 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-declare global {
-  interface Window {
-    grecaptcha: any;
-    onRecaptchaSuccess: (token: string) => void;
-  }
-}
-
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  const [captchaQuestion, setCaptchaQuestion] = useState({ num1: 0, num2: 0, answer: 0 });
+  const [captchaValid, setCaptchaValid] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLiveCamera, setShowLiveCamera] = useState(false);
@@ -33,29 +28,18 @@ const Index = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.ready) {
-        clearInterval(interval);
-        window.grecaptcha.ready(() => {
-          console.log('reCAPTCHA is ready');
-        });
-      }
-    }, 100);
-    
-    (window as any).onRecaptchaSuccess = (token: string) => {
-      console.log('reCAPTCHA token received');
-      setRecaptchaToken(token);
-    };
-    
-    (window as any).onRecaptchaExpired = () => {
-      console.log('reCAPTCHA expired');
-      setRecaptchaToken(null);
-    };
-    
-    return () => {
-      clearInterval(interval);
-    };
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
   }, []);
+  
+  useEffect(() => {
+    if (captchaAnswer) {
+      setCaptchaValid(parseInt(captchaAnswer) === captchaQuestion.answer);
+    } else {
+      setCaptchaValid(false);
+    }
+  }, [captchaAnswer, captchaQuestion]);
 
   const cameras = [
     { id: 'panorama', name: 'Панорамный вид', url: 'https://stream3.exdesign.ru/borisovskie-5/tracks-v1/mono.m3u8?token=68f12810977b3043cb43ea389ab9e9b785bb0f34-27d630d431b665ea27c325a796fd0bce-1761654917-1761644117' },
@@ -1019,8 +1003,8 @@ const Index = () => {
               <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault();
                 
-                if (!recaptchaToken || recaptchaToken === '') {
-                  alert('Пожалуйста, подтвердите, что вы не робот');
+                if (!captchaValid) {
+                  alert('Пожалуйста, правильно решите пример');
                   return;
                 }
                 
@@ -1030,18 +1014,16 @@ const Index = () => {
                   const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...formData, recaptchaToken })
+                    body: JSON.stringify({ ...formData, recaptchaToken: 'simple-captcha-passed' })
                   });
                   
                   if (response.ok) {
                     alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                     setFormData({ name: '', phone: '', message: '' });
-                    setRecaptchaToken('');
-                    setTimeout(() => {
-                      if (window.grecaptcha) {
-                        window.grecaptcha.reset();
-                      }
-                    }, 100);
+                    setCaptchaAnswer('');
+                    const num1 = Math.floor(Math.random() * 10) + 1;
+                    const num2 = Math.floor(Math.random() * 10) + 1;
+                    setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
                     setShowContactForm(false);
                   } else {
                     const errorData = await response.json();
@@ -1082,15 +1064,28 @@ const Index = () => {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
                 </div>
-                <div className="flex justify-center">
-                  <div 
-                    className="g-recaptcha" 
-                    data-sitekey="6LcGA_orAAAAAPMsCQAiIIRY4dZRrWMDVQt36GrY"
-                    data-callback="onRecaptchaSuccess"
-                    data-expired-callback="onRecaptchaExpired"
-                  ></div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Подтвердите, что вы не робот</label>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-muted px-4 py-2 rounded-md font-mono text-lg">
+                      {captchaQuestion.num1} + {captchaQuestion.num2} = ?
+                    </div>
+                    <Input 
+                      type="number"
+                      placeholder="?" 
+                      value={captchaAnswer}
+                      onChange={(e) => setCaptchaAnswer(e.target.value)}
+                      className="w-20"
+                      required
+                    />
+                    {captchaAnswer && (
+                      <span className="text-lg">
+                        {captchaValid ? '✅' : '❌'}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+                <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !captchaValid}>
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                 </Button>
               </form>
@@ -1289,8 +1284,8 @@ const Index = () => {
             <form className="space-y-4" onSubmit={async (e) => {
               e.preventDefault();
               
-              if (!recaptchaToken || recaptchaToken === '') {
-                alert('Пожалуйста, подтвердите, что вы не робот');
+              if (!captchaValid) {
+                alert('Пожалуйста, правильно решите пример');
                 return;
               }
               
@@ -1300,18 +1295,16 @@ const Index = () => {
                 const response = await fetch('https://functions.poehali.dev/957d5b1a-6bea-4f8f-9368-00a5fb42991a', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ ...formData, recaptchaToken })
+                  body: JSON.stringify({ ...formData, recaptchaToken: 'simple-captcha-passed' })
                 });
                 
                 if (response.ok) {
                   alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
                   setFormData({ name: '', phone: '', message: '' });
-                  setRecaptchaToken('');
-                  setTimeout(() => {
-                    if (window.grecaptcha) {
-                      window.grecaptcha.reset();
-                    }
-                  }, 100);
+                  setCaptchaAnswer('');
+                  const num1 = Math.floor(Math.random() * 10) + 1;
+                  const num2 = Math.floor(Math.random() * 10) + 1;
+                  setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
                   setShowContactForm(false);
                 } else {
                   alert('Ошибка при отправке. Попробуйте позже.');
@@ -1349,15 +1342,28 @@ const Index = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
               </div>
-              <div className="flex justify-center">
-                <div 
-                  className="g-recaptcha" 
-                  data-sitekey="6LcGA_orAAAAAPMsCQAiIIRY4dZRrWMDVQt36GrY"
-                  data-callback="onRecaptchaSuccess"
-                  data-expired-callback="onRecaptchaExpired"
-                ></div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Подтвердите, что вы не робот</label>
+                <div className="flex items-center gap-3">
+                  <div className="bg-muted px-4 py-2 rounded-md font-mono text-lg">
+                    {captchaQuestion.num1} + {captchaQuestion.num2} = ?
+                  </div>
+                  <Input 
+                    type="number"
+                    placeholder="?" 
+                    value={captchaAnswer}
+                    onChange={(e) => setCaptchaAnswer(e.target.value)}
+                    className="w-20"
+                    required
+                  />
+                  {captchaAnswer && (
+                    <span className="text-lg">
+                      {captchaValid ? '✅' : '❌'}
+                    </span>
+                  )}
+                </div>
               </div>
-              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting}>
+              <Button className="w-full" size="lg" type="submit" disabled={isSubmitting || !captchaValid}>
                 {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </Button>
             </form>
