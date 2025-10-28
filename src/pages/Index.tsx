@@ -230,7 +230,7 @@ const Index = () => {
           <div className="flex gap-3">
             <Button 
               variant="ghost" 
-              className="hidden md:block text-primary-foreground hover:bg-primary-foreground/10"
+              className="hidden md:block text-primary-foreground hover:text-accent hover:bg-accent/10 transition-colors duration-300"
               onClick={() => setShowLiveCamera(true)}
             >
               <Icon name="Video" size={18} className="mr-2" />
