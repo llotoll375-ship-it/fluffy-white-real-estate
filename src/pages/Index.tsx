@@ -436,13 +436,13 @@ const Index = () => {
                 <Card className="p-6 text-center h-full">
                   <div className="aspect-square overflow-hidden rounded-lg mb-4">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/f763f108-b9fb-4530-9008-0e1769a519d9.jpg"
-                      alt="Метро"
+                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/2f18b544-389f-4c48-9b34-f9c59b0f75cc.jpg"
+                      alt="Метро Борисово"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <Icon name="Train" size={40} className="mx-auto mb-3 text-accent" />
-                  <h3 className="text-xl font-bold mb-2">Метро</h3>
+                  <h3 className="text-xl font-bold mb-2">Метро Борисово</h3>
                   <p className="text-muted-foreground text-sm">12 минут пешком</p>
                 </Card>
               </CarouselItem>
@@ -451,7 +451,7 @@ const Index = () => {
                 <Card className="p-6 text-center h-full">
                   <div className="aspect-square overflow-hidden rounded-lg mb-4">
                     <img 
-                      src="https://cdn.poehali.dev/projects/2027b953-394c-4273-bb49-d09f3d29ff52/files/2631cbed-8329-4cac-9041-1a36c1b1c85a.jpg"
+                      src="https://cdn.poehali.dev/files/0b1d25cd-6240-41b6-92e0-8229fc561786.jpg"
                       alt="Детская площадка"
                       className="w-full h-full object-cover"
                     />
