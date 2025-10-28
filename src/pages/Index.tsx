@@ -703,7 +703,7 @@ const Index = () => {
                   </div>
                   <Icon name="Heart" size={40} className="mx-auto mb-3 text-accent" />
                   <h3 className="text-xl font-bold mb-2">Поликлиника</h3>
-                  <p className="text-muted-foreground text-sm">10 минут пешком</p>
+                  <p className="text-muted-foreground text-sm">12 минут пешком</p>
                 </Card>
               </CarouselItem>
 
