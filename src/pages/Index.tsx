@@ -664,8 +664,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/4">
                 <Card className="p-6 text-center h-full">
-                  <div className="bg-gradient-to-br from-accent/20 to-accent/5 aspect-square rounded-lg mb-4 flex items-center justify-center">
-                    <Icon name="ShoppingBag" size={80} className="text-accent/40" />
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src="https://cdn.poehali.dev/files/44daa4ce-4a29-4f63-9b7a-c9185561dcdd.jpg"
+                      alt="Торговый центр Браво"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <Icon name="ShoppingBag" size={40} className="mx-auto mb-3 text-accent" />
                   <h3 className="text-xl font-bold mb-2">Торговые центры</h3>
@@ -675,8 +679,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/4">
                 <Card className="p-6 text-center h-full">
-                  <div className="bg-gradient-to-br from-accent/20 to-accent/5 aspect-square rounded-lg mb-4 flex items-center justify-center">
-                    <Icon name="GraduationCap" size={80} className="text-accent/40" />
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src="https://cdn.poehali.dev/files/0b442ce8-5907-4bd7-9e6a-cca7b823937c.JPG"
+                      alt="Детский сад Наследник"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <Icon name="GraduationCap" size={40} className="mx-auto mb-3 text-accent" />
                   <h3 className="text-xl font-bold mb-2">Школы и сады</h3>
@@ -686,8 +694,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/4">
                 <Card className="p-6 text-center h-full">
-                  <div className="bg-gradient-to-br from-accent/20 to-accent/5 aspect-square rounded-lg mb-4 flex items-center justify-center">
-                    <Icon name="Heart" size={80} className="text-accent/40" />
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src="https://cdn.poehali.dev/files/4f84f0e0-1303-41f2-9749-67e5138f2b72.jpg"
+                      alt="Поликлиника №145"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <Icon name="Heart" size={40} className="mx-auto mb-3 text-accent" />
                   <h3 className="text-xl font-bold mb-2">Поликлиника</h3>
@@ -697,8 +709,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/4">
                 <Card className="p-6 text-center h-full">
-                  <div className="bg-gradient-to-br from-accent/20 to-accent/5 aspect-square rounded-lg mb-4 flex items-center justify-center">
-                    <Icon name="Trees" size={80} className="text-accent/40" />
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src="https://cdn.poehali.dev/files/a1b9a2a9-73df-4503-aafc-5ba6aa9b7247.jpg"
+                      alt="Парк Борисовские пруды"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <Icon name="Trees" size={40} className="mx-auto mb-3 text-accent" />
                   <h3 className="text-xl font-bold mb-2">Парковая зона</h3>
