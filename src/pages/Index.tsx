@@ -370,7 +370,7 @@ const Index = () => {
                 alt="МЦД D2"
                 className="h-6"
               />
-              <span className="text-sm md:text-base font-semibold text-blue-800">СТАНЦИЯ D2 «МОСКВОРЕЧЬЕ»</span>
+              <span className="text-sm md:text-base font-semibold text-blue-800">«МОСКВОРЕЧЬЕ»</span>
             </div>
             <div className="flex items-center gap-3 bg-white/95 rounded-full px-4 py-2 w-fit">
               <img 
