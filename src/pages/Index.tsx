@@ -19,6 +19,7 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [showMapModal, setShowMapModal] = useState(false);
+  const [showLiveCamera, setShowLiveCamera] = useState(false);
 
   const defaultGalleryImages = [
     { url: 'https://cdn.poehali.dev/files/a7929a00-009f-4cb2-8e4e-17ee876d6139.jpg', title: 'Фасад комплекса' },
@@ -192,13 +193,23 @@ const Index = () => {
               Контакты
             </a>
           </div>
-          <Button 
-            variant="secondary" 
-            className="hidden md:block"
-            onClick={() => setShowContactForm(true)}
-          >
-            Записаться на просмотр
-          </Button>
+          <div className="flex gap-3">
+            <Button 
+              variant="ghost" 
+              className="hidden md:block text-primary-foreground hover:bg-primary-foreground/10"
+              onClick={() => setShowLiveCamera(true)}
+            >
+              <Icon name="Video" size={18} className="mr-2" />
+              Онлайн-камера
+            </Button>
+            <Button 
+              variant="secondary" 
+              className="hidden md:block"
+              onClick={() => setShowContactForm(true)}
+            >
+              Записаться на просмотр
+            </Button>
+          </div>
         </nav>
       </header>
 
@@ -966,6 +977,43 @@ const Index = () => {
               onClick={(e) => e.stopPropagation()}
             />
             <p className="text-white text-center mt-4 text-sm">Нажмите вне изображения, чтобы закрыть</p>
+          </div>
+        </div>
+      )}
+
+      {showLiveCamera && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setShowLiveCamera(false)}
+        >
+          <div className="relative max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+              onClick={() => setShowLiveCamera(false)}
+            >
+              <Icon name="X" size={32} />
+            </button>
+            <Card className="bg-background p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <h3 className="text-2xl font-bold text-primary">Онлайн-трансляция со стройки</h3>
+              </div>
+              <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="YOUR_STREAM_URL_HERE"
+                  title="Онлайн-камера ЖК WAVE"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <p className="text-muted-foreground text-center mt-4 text-sm">
+                Следите за ходом строительства в режиме реального времени
+              </p>
+            </Card>
           </div>
         </div>
       )}
