@@ -26,12 +26,21 @@ const Index = () => {
   const [activeCamera, setActiveCamera] = useState('panorama');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
     setCaptchaQuestion({ num1, num2, answer: num1 + num2 });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
   useEffect(() => {
@@ -355,9 +364,10 @@ const Index = () => {
 
       <section id="hero" className="relative h-screen flex flex-col overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-75"
           style={{
-            backgroundImage: 'url(https://cdn.poehali.dev/files/da4ab980-7f5c-44eb-bd39-6e83a38b4dee.jpg)'
+            backgroundImage: 'url(https://cdn.poehali.dev/files/da4ab980-7f5c-44eb-bd39-6e83a38b4dee.jpg)',
+            transform: `scale(${1 + scrollY * 0.0003})`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/50" />
