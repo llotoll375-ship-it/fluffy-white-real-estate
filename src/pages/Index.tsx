@@ -431,10 +431,10 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
             <button
               onClick={() => setFamilyFilter('children')}
-              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                 familyFilter === 'children'
                   ? 'bg-accent text-white shadow-lg scale-105'
                   : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
@@ -444,7 +444,7 @@ const Index = () => {
             </button>
             <button
               onClick={() => setFamilyFilter('young')}
-              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                 familyFilter === 'young'
                   ? 'bg-accent text-white shadow-lg scale-105'
                   : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
@@ -454,7 +454,7 @@ const Index = () => {
             </button>
             <button
               onClick={() => setFamilyFilter('solo')}
-              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                 familyFilter === 'solo'
                   ? 'bg-accent text-white shadow-lg scale-105'
                   : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
@@ -464,7 +464,7 @@ const Index = () => {
             </button>
             <button
               onClick={() => setFamilyFilter('parents')}
-              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                 familyFilter === 'parents'
                   ? 'bg-accent text-white shadow-lg scale-105'
                   : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
