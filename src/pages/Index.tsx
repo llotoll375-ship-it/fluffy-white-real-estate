@@ -1736,22 +1736,25 @@ const Index = () => {
 
       {enlargedFloorPlan && (
         <div 
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 cursor-pointer"
           onClick={() => setEnlargedFloorPlan(null)}
         >
-          <div className="relative max-w-4xl w-full">
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full flex flex-col">
             <button
               onClick={() => setEnlargedFloorPlan(null)}
-              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors z-10 bg-black/50 rounded-full p-2"
             >
               <Icon name="X" size={32} />
             </button>
-            <img 
-              src={enlargedFloorPlan}
-              alt="План квартиры"
-              className="w-full h-auto"
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div className="flex-1 flex items-center justify-center overflow-hidden">
+              <img 
+                src={enlargedFloorPlan}
+                alt="План квартиры"
+                className="max-w-full max-h-full object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            <p className="text-white text-center mt-4 text-sm">Нажмите вне изображения, чтобы закрыть</p>
           </div>
         </div>
       )}
