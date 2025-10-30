@@ -434,9 +434,12 @@ const Index = () => {
             <CarouselContent>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/1e160a58-33a6-4cbd-941c-f6661d6fee69.png')}
+                  >
                     <img 
-                      src="https://cdn.poehali.dev/files/053262e3-8081-4dca-be06-b0b19c603363.png"
+                      src="https://cdn.poehali.dev/files/1e160a58-33a6-4cbd-941c-f6661d6fee69.png"
                       alt="Студия StC-1-11-18"
                       className="w-full h-full object-contain"
                     />
@@ -509,9 +512,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/ad216020-2a1e-47a1-9b60-a7f98ecb2ff2.png')}
+                  >
                     <img 
-                      src="https://cdn.poehali.dev/files/b9820386-3fe8-4b3c-825a-9696d82b02b1.png"
+                      src="https://cdn.poehali.dev/files/ad216020-2a1e-47a1-9b60-a7f98ecb2ff2.png"
                       alt="2-комнатная евро 2eA-4-5-14"
                       className="w-full h-full object-contain"
                     />
@@ -545,9 +551,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/10150703-d7cd-4205-b6e3-b87e7f1829ce.png')}
+                  >
                     <img 
-                      src="https://cdn.poehali.dev/files/8a65196f-04af-4f71-8cb1-813f0e760c98.png"
+                      src="https://cdn.poehali.dev/files/10150703-d7cd-4205-b6e3-b87e7f1829ce.png"
                       alt="3-комнатная евро 3eG-1-5-10"
                       className="w-full h-full object-contain"
                     />
@@ -581,9 +590,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/4237dbf7-76a4-47c9-875a-20994d0f98f8.png')}
+                  >
                     <img 
-                      src="https://cdn.poehali.dev/files/7507931e-240c-4dc1-91fd-1c161b53377b.png"
+                      src="https://cdn.poehali.dev/files/4237dbf7-76a4-47c9-875a-20994d0f98f8.png"
                       alt="4-комнатная евро 4eB-1-5-10"
                       className="w-full h-full object-contain"
                     />
