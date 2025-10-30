@@ -1118,30 +1118,6 @@ const Index = () => {
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="bg-accent/10 p-3 rounded-full">
-                    <Icon name="Phone" size={24} className="text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1 text-primary">Телефон</h4>
-                    <p className="text-muted-foreground">+7 (905) 502-60-02</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="bg-accent/10 p-3 rounded-full">
-                    <Icon name="Mail" size={24} className="text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1 text-primary">Email</h4>
-                    <p className="text-muted-foreground">jkwave@wave.ru</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="bg-accent/10 p-3 rounded-full">
                     <Icon name="MapPin" size={24} className="text-accent" />
                   </div>
                   <div>
