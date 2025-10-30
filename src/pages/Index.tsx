@@ -492,23 +492,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">Студия StC-1-11-18</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 24.8 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 10 638 406 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Панорамные окна</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Высокие потолки 3м</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Чистовая отделка</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -533,23 +519,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-16-3</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 38.2 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 15 623 456 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Кухня-гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Балкон с видом</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Гардеробная</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -574,23 +546,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">2-комнатная евро 2eA-4-5-14</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 70.5 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 26 079 007 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Раздельные комнаты</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>2 санузла</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Большая кухня 15м²</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -615,23 +573,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eG-1-5-10</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 70.5 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 26 795 569 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Мастер-спальня</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Гардеробные в каждой комнате</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Французский балкон</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -656,23 +600,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eC-1-4</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 92.6 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 37 761 354 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>3 изолированные спальни</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Просторная кухня-гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>2 санузла</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -697,23 +627,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">4-комнатная евро 4eA-2-29-34</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 107.1 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 43 275 040 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>4 изолированные спальни</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Большая гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>2 санузла</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -738,23 +654,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-24-5-17</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 36.1 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 15 114 817 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Компактная планировка</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Кухня-гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Отдельная спальня</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -779,23 +681,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-23-23</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 40.0 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 19 710 560 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Светлая гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Удобная планировка</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Большие окна</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -820,23 +708,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eJ-2-2</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 82.9 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 27 333 456 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>3 спальни</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Просторная гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Функциональная кухня</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -861,23 +735,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eH-1-4-9</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 78.1 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 27 801 178 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>3 изолированные комнаты</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Удобная кухня-гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>2 санузла</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -902,23 +762,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eC-1-4</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 92.6 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 37 761 354 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>3 изолированные спальни</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Просторная кухня-гостиная</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>2 санузла</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
@@ -943,23 +789,9 @@ const Index = () => {
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-primary">4-комнатная евро 4eB-1-5-10</h3>
                     <p className="text-muted-foreground mb-4">Площадь: 102.4 м²</p>
-                    <div className="flex items-baseline gap-2 mb-4">
+                    <div className="flex items-baseline gap-2 mb-6">
                       <span className="text-3xl font-bold text-accent">от 39 596 748 ₽</span>
                     </div>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Просторная планировка</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>3 санузла</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-sm">
-                        <Icon name="Check" size={16} className="text-accent" />
-                        <span>Несколько балконов</span>
-                      </li>
-                    </ul>
                     <Button className="w-full" onClick={() => setShowContactForm(true)}>
                       Узнать подробнее
                     </Button>
