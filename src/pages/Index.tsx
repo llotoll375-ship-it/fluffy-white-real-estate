@@ -28,7 +28,7 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [familyFilter, setFamilyFilter] = useState<string>('all');
+  const [familyFilter, setFamilyFilter] = useState<string>('children');
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -432,16 +432,6 @@ const Index = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <button
-              onClick={() => setFamilyFilter('all')}
-              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
-                familyFilter === 'all'
-                  ? 'bg-accent text-white shadow-lg scale-105'
-                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
-              }`}
-            >
-              Все квартиры
-            </button>
             <button
               onClick={() => setFamilyFilter('children')}
               className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
