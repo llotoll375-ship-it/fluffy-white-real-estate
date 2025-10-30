@@ -28,6 +28,7 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [familyFilter, setFamilyFilter] = useState<string>('all');
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -430,8 +431,62 @@ const Index = () => {
             </p>
           </div>
 
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <button
+              onClick={() => setFamilyFilter('all')}
+              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+                familyFilter === 'all'
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
+              }`}
+            >
+              Все квартиры
+            </button>
+            <button
+              onClick={() => setFamilyFilter('children')}
+              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+                familyFilter === 'children'
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
+              }`}
+            >
+              С детьми
+            </button>
+            <button
+              onClick={() => setFamilyFilter('young')}
+              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+                familyFilter === 'young'
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
+              }`}
+            >
+              Молодой семье
+            </button>
+            <button
+              onClick={() => setFamilyFilter('solo')}
+              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+                familyFilter === 'solo'
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
+              }`}
+            >
+              Самостоятельных
+            </button>
+            <button
+              onClick={() => setFamilyFilter('parents')}
+              className={`px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 ${
+                familyFilter === 'parents'
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-white text-primary hover:bg-accent/10 border-2 border-accent/20'
+              }`}
+            >
+              С родителями
+            </button>
+          </div>
+
           <Carousel className="w-full max-w-6xl mx-auto">
             <CarouselContent>
+              {(familyFilter === 'all' || familyFilter === 'solo') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div 
@@ -470,7 +525,9 @@ const Index = () => {
                   </div>
                 </Card>
               </CarouselItem>
+              )}
 
+              {(familyFilter === 'all' || familyFilter === 'solo' || familyFilter === 'young') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div 
@@ -509,7 +566,9 @@ const Index = () => {
                   </div>
                 </Card>
               </CarouselItem>
+              )}
 
+              {(familyFilter === 'all' || familyFilter === 'children' || familyFilter === 'young') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div 
@@ -548,7 +607,9 @@ const Index = () => {
                   </div>
                 </Card>
               </CarouselItem>
+              )}
 
+              {(familyFilter === 'all' || familyFilter === 'children' || familyFilter === 'young' || familyFilter === 'parents') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div 
@@ -587,7 +648,9 @@ const Index = () => {
                   </div>
                 </Card>
               </CarouselItem>
+              )}
 
+              {(familyFilter === 'all' || familyFilter === 'children' || familyFilter === 'parents') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div 
@@ -626,6 +689,7 @@ const Index = () => {
                   </div>
                 </Card>
               </CarouselItem>
+              )}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
