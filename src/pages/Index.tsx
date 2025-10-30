@@ -14,6 +14,7 @@ import {
 
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [enlargedFloorPlan, setEnlargedFloorPlan] = useState<string | null>(null);
   const [customImages, setCustomImages] = useState<Array<{ url: string; title: string }>>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -469,9 +470,12 @@ const Index = () => {
 
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/8b2d7316-ff5c-4725-9d52-5389683da316.png')}
+                  >
                     <img 
-                      src="https://cdn.poehali.dev/files/49ae0d2b-b7ee-4239-9755-4ec9b0aff582.png"
+                      src="https://cdn.poehali.dev/files/8b2d7316-ff5c-4725-9d52-5389683da316.png"
                       alt="1-комнатная евро 1eA-16-3"
                       className="w-full h-full object-contain"
                     />
@@ -1374,6 +1378,28 @@ const Index = () => {
               </Button>
             </form>
           </Card>
+        </div>
+      )}
+
+      {enlargedFloorPlan && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setEnlargedFloorPlan(null)}
+        >
+          <div className="relative max-w-4xl w-full">
+            <button
+              onClick={() => setEnlargedFloorPlan(null)}
+              className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+            >
+              <Icon name="X" size={32} />
+            </button>
+            <img 
+              src={enlargedFloorPlan}
+              alt="План квартиры"
+              className="w-full h-auto"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
         </div>
       )}
 
