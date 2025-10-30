@@ -640,6 +640,293 @@ const Index = () => {
               </CarouselItem>
               )}
 
+              {(familyFilter === 'all' || familyFilter === 'children') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/f2607bf9-c79a-49bd-90ad-0cc18bb2a229.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/f2607bf9-c79a-49bd-90ad-0cc18bb2a229.png"
+                      alt="3-комнатная евро 3eC-1-4"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eC-1-4</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 92.6 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 37 761 354 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>3 изолированные спальни</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Просторная кухня-гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>2 санузла</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'children') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/77eb8833-d4db-4823-8335-c57a14283f4b.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/77eb8833-d4db-4823-8335-c57a14283f4b.png"
+                      alt="4-комнатная евро 4eA-2-29-34"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">4-комнатная евро 4eA-2-29-34</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 107.1 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 43 275 040 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>4 изолированные спальни</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Большая гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>2 санузла</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'young') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/83c99f14-3514-44cb-b778-637817430528.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/83c99f14-3514-44cb-b778-637817430528.png"
+                      alt="1-комнатная евро 1eA-24-5-17"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-24-5-17</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 36.1 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 15 114 817 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Компактная планировка</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Кухня-гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Отдельная спальня</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'young') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/3bbd30e5-89e5-4dcc-987e-4fb959fe2dee.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/3bbd30e5-89e5-4dcc-987e-4fb959fe2dee.png"
+                      alt="1-комнатная евро 1eA-23-23"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">1-комнатная евро 1eA-23-23</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 40.0 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 19 710 560 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Светлая гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Удобная планировка</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Большие окна</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'young') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/628cf8d4-9ef4-41fc-9cea-a00aee139607.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/628cf8d4-9ef4-41fc-9cea-a00aee139607.png"
+                      alt="3-комнатная евро 3eJ-2-2"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eJ-2-2</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 82.9 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 27 333 456 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>3 спальни</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Просторная гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Функциональная кухня</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'parents') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/6f8b3f4c-dcee-41c3-8c6f-482642551c52.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/6f8b3f4c-dcee-41c3-8c6f-482642551c52.png"
+                      alt="3-комнатная евро 3eH-1-4-9"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eH-1-4-9</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 78.1 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 27 801 178 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>3 изолированные комнаты</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Удобная кухня-гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>2 санузла</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
+              {(familyFilter === 'all' || familyFilter === 'parents') && (
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-8 cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setEnlargedFloorPlan('https://cdn.poehali.dev/files/f2607bf9-c79a-49bd-90ad-0cc18bb2a229.png')}
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/f2607bf9-c79a-49bd-90ad-0cc18bb2a229.png"
+                      alt="3-комнатная евро 3eC-1-4"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">3-комнатная евро 3eC-1-4</h3>
+                    <p className="text-muted-foreground mb-4">Площадь: 92.6 м²</p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-3xl font-bold text-accent">от 37 761 354 ₽</span>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>3 изолированные спальни</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>Просторная кухня-гостиная</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-accent" />
+                        <span>2 санузла</span>
+                      </li>
+                    </ul>
+                    <Button className="w-full" onClick={() => setShowContactForm(true)}>
+                      Узнать подробнее
+                    </Button>
+                  </div>
+                </Card>
+              </CarouselItem>
+              )}
+
               {(familyFilter === 'all' || familyFilter === 'children' || familyFilter === 'parents') && (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
