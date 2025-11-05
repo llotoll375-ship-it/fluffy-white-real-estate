@@ -420,6 +420,14 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-8 px-4 bg-gradient-to-r from-accent/5 to-accent/10">
+        <div className="container mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary">
+            Привет! Добро пожаловать в WAVE
+          </h2>
+        </div>
+      </section>
+
       <section id="apartments" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-slide-up">
